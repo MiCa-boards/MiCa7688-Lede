@@ -144,6 +144,9 @@ get_status_led() {
 	mlwg2)
 		status_led="$board:blue:system"
 		;;
+    mica7688)
+        [ "$1" = "upgrade" ] && status_led="mica:green:wifi"
+		;;
 	linkits7688| \
 	linkits7688d)
 		[ "$1" = "upgrade" ] && status_led="mediatek:orange:wifi"
