@@ -387,6 +387,9 @@ youku-yk1)
 	set_wifi_led "$board:blue:air"
 	set_usb_led "$board:blue:usb"
 	;;
+mica7688)
+    ucidef_set_led_netdev "wifi_led" "wifi" "mica:wifi" "ra0"
+    ;;
 esac
 
 board_config_flush

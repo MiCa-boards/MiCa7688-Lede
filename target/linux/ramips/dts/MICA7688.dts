@@ -26,14 +26,26 @@
 
 		status = "okay";
 	};
-
+	
 	gpio-leds {
 		compatible = "gpio-leds";
 
 		wifi {
-			label = "mica:green:wifi";
-			gpios = <&wgpio 0 0>;
+			label = "mica:wifi";
+			gpios = <&gpio1 12 1>;
 			default-state = "on";
+		};
+
+		led1 {
+			label = "mica:led1";
+			gpios = <&gpio1 10 1>;
+			default-state = "off";
+		};
+
+		led2 {
+			label = "mica:led2";
+			gpios = <&gpio1 9 1>;
+			default-state = "off";
 		};
 	};
 
@@ -50,13 +62,8 @@
 		};
 	};
 
-	wgpio: gpio-wifi {
-		compatible = "mediatek,gpio-wifi";
-		#address-cells = <1>;
-		#size-cells = <0>;
-		gpio-controller;
-		#gpio-cells = <2>;
-	};
+	
+
 };
 
 &pinctrl {
@@ -93,13 +100,14 @@
 
 		wled_an {
 			ralink,group = "wled_an";
-			ralink,function = "wled_an";
+			ralink,function = "gpio";
 		};
 
 		wdt {
 			ralink,group = "wdt";
 			ralink,function = "gpio";
 		};
+		
 	};
 };
 
