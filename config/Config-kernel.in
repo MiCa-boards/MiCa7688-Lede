@@ -748,6 +748,7 @@ endmenu
 
 config KERNEL_DEVMEM
 	bool "/dev/mem virtual device support"
+	default y
 	help
 	  Say Y here if you want to support the /dev/mem device.
 	  The /dev/mem device is used to access areas of physical
@@ -755,6 +756,7 @@ config KERNEL_DEVMEM
 
 config KERNEL_DEVKMEM
 	bool "/dev/kmem virtual device support"
+	default n
 	help
 	  Say Y here if you want to support the /dev/kmem device. The
 	  /dev/kmem device is rarely used, but can be used for certain
