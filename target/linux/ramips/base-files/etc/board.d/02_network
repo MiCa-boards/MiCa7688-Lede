@@ -47,7 +47,6 @@ ramips_setup_interfaces()
 	dcs-930|\
 	dcs-930l-b1|\
 	ht-tm02|\
-	mica7688 | \
 	linkits7688 | \
 	linkits7688d | \
 	m2m|\
@@ -275,6 +274,10 @@ ramips_setup_interfaces()
 		ucidef_add_switch "switch0" \
 			"1:lan" "2:lan" "0:wan" "6@eth0"
 		;;
+	mica7688)
+		ucidef_add_switch "switch0" \
+			"0:lan" "6t@eth0"
+		;;	
 	*)
 		RT3X5X=`cat /proc/cpuinfo | egrep "(RT3.5|RT5350)"`
 		if [ -n "${RT3X5X}" ]; then

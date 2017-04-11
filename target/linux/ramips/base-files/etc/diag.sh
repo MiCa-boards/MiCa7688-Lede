@@ -145,7 +145,7 @@ get_status_led() {
 		status_led="$board:blue:system"
 		;;
     mica7688)
-        [ "$1" = "upgrade" ] && status_led="mica:green:wifi"
+        [ "$1" = "upgrade" ] && status_led="mica:wifi"
 		;;
 	linkits7688| \
 	linkits7688d)
