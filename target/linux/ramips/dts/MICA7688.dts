@@ -108,6 +108,11 @@
 			ralink,function = "gpio";
 		};
 		
+		pwm1 {
+			ralink,group = "pwm1";
+			ralink,function = "gpio";
+		};
+		
 	};
 };
 
