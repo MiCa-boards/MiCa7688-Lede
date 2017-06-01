@@ -1,4 +1,4 @@
-kinclude $(TOPDIR)/rules.mk
+include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mt76
 PKG_RELEASE=1
@@ -9,8 +9,7 @@ PKG_LICENSE_FILES:=
 PKG_SOURCE_URL:=https://github.com/openwrt/mt76
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_DATE:=2017-05-30
-PKG_SOURCE_VERSION:=ef5b045ddf52d7033da5270c7a6ce195df24bd24
-PKG_MIRROR_HASH:=728fe56fda7bb5f7d97f5aefdb95c009d1ea7f1f092911d0d55af8b525f71466
+PKG_SOURCE_VERSION:=master
 
 PKG_MAINTAINER:=Felix Fietkau <nbd@nbd.name>
 PKG_BUILD_PARALLEL:=1
