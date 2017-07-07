@@ -1,7 +1,7 @@
 From e498b4984db82b4ba3ceea7dba813222a31e9c2e Mon Sep 17 00:00:00 2001
 From: Laxman Dewangan <ldewangan@nvidia.com>
 Date: Wed, 9 Mar 2016 18:40:06 +0530
-Subject: thermal: of-thermal: Add devm version of
+Subject: [PATCH] thermal: of-thermal: Add devm version of
  thermal_zone_of_sensor_register
 
 Add resource managed version of thermal_zone_of_sensor_register() and
