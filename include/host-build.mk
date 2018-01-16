@@ -22,6 +22,7 @@ endif
 include $(INCLUDE_DIR)/host.mk
 include $(INCLUDE_DIR)/unpack.mk
 include $(INCLUDE_DIR)/depends.mk
+include $(INCLUDE_DIR)/quilt.mk
 
 BUILD_TYPES += host
 HOST_STAMP_PREPARED=$(HOST_BUILD_DIR)/.prepared$(if $(HOST_QUILT)$(DUMP),,$(shell $(call find_md5,${CURDIR} $(PKG_FILE_DEPENDS),)))
@@ -32,7 +33,6 @@ HOST_STAMP_INSTALLED:=$(HOST_BUILD_PREFIX)/stamp/.$(PKG_NAME)_installed
 
 override MAKEFLAGS=
 
-include $(INCLUDE_DIR)/quilt.mk
 include $(INCLUDE_DIR)/autotools.mk
 
 Host/Patch:=$(Host/Patch/Default)
@@ -77,6 +77,10 @@ HOST_MAKE_FLAGS =
 
 HOST_CONFIGURE_CMD = $(BASH) ./configure
 
+ifeq ($(HOST_OS),Darwin)
+  HOST_CONFIG_SITE:=$(INCLUDE_DIR)/site/darwin
+endif
+
 define Host/Configure/Default
 	$(if $(HOST_CONFIGURE_PARALLEL),+)(cd $(HOST_BUILD_DIR)/$(3); \
 		if [ -x configure ]; then \
@@ -106,7 +110,7 @@ define Host/Compile
 endef
 
 define Host/Install/Default
-	$(_SINGLE)$(MAKE) -C $(HOST_BUILD_DIR) install
+	$(call Host/Compile/Default,install)
 endef
 
 define Host/Install
@@ -127,6 +131,7 @@ define Host/Exports/Default
   $(1) : export PKG_CONFIG_PATH=$$(STAGING_DIR_HOST)/lib/pkgconfig:$$(HOST_BUILD_PREFIX)/lib/pkgconfig
   $(1) : export PKG_CONFIG_LIBDIR=$$(HOST_BUILD_PREFIX)/lib/pkgconfig
   $(1) : export CCACHE_DIR:=$(STAGING_DIR_HOST)/ccache
+  $(if $(HOST_CONFIG_SITE),$(1) : export CONFIG_SITE:=$(HOST_CONFIG_SITE))
   $(if $(IS_PACKAGE_BUILD),$(1) : export PATH=$$(TARGET_PATH_PKG))
 endef
 Host/Exports=$(Host/Exports/Default)
