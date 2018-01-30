@@ -281,7 +281,7 @@ ramips_setup_interfaces()
 		ucidef_add_switch "switch0" \
 			"1:lan" "2:lan" "0:wan" "6@eth0"
 		;;
-	mica7688)
+	xetal7688)
 		ucidef_add_switch "switch0" \
 			"0:lan" "6t@eth0"
 		;;	
@@ -365,7 +365,7 @@ ramips_setup_macs()
 	kng_rc)
 		wan_mac=$(mtd_get_mac_binary factory 40)
 		;;
-    mica7688 | \
+    	xetal7688 | \
 	linkits7688 | \
 	linkits7688d)
 		wan_mac=$(mtd_get_mac_binary factory 4)

@@ -1,3 +1,4 @@
+
 #
 # Copyright (C) 2010 OpenWrt.org
 #
@@ -74,7 +75,7 @@ platform_check_image() {
 	kn_rc|\
 	kn_rf|\
 	kng_rc|\
-	mica7688|\
+	xetal7688|\
 	linkits7688|\
 	linkits7688d|\
 	m2m|\
