@@ -11,14 +11,14 @@ define Device/LinkIt7688
 endef
 TARGET_DEVICES += LinkIt7688
 
-define Device/Xetal7688
-  DTS := XETAL7688
+define Device/MiCa7688
+  DTS := MICA7688
   IMAGE_SIZE := $(ralink_default_fw_size_32M)
-  SUPPORTED_DEVICES := xetal7688
-  DEVICE_TITLE := Xetal7688
+  SUPPORTED_DEVICES := mica7688
+  DEVICE_TITLE := MiCa7688
   DEVICE_PACKAGES:= kmod-usb2 kmod-usb-ohci uboot-envtools
 endef
-TARGET_DEVICES += Xetal7688
+TARGET_DEVICES += MiCa7688
 
 define Device/pbr-d1
   DTS := PBR-D1
