@@ -390,8 +390,8 @@ youku-yk1)
 	set_usb_led "$board:blue:usb"
 	ucidef_set_led_switch "wan" "wan" "$board:blue:wan" "switch0" "0x10"
 	;;
-mica7688)
-    ucidef_set_led_netdev "wifi_led" "wifi" "mica:wifi" "ra0"
+xetal7688)
+    ucidef_set_led_netdev "wifi_led" "wifi" "xetal:wifi" "ra0"
     ;;
 esac
 

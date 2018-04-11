@@ -259,8 +259,8 @@ ramips_board_detect() {
 	*"M4 (8M)")
 		name="m4-8M"
 		;;
-    *"MiCa7688")
-                name="mica7688"
+	*"Xetal7688")
+                name="xetal7688"
         ;;
 	*"MediaTek LinkIt Smart 7688")
 		linkit="$(dd bs=1 skip=1024 count=12 if=/dev/mtd2 2> /dev/null)"
